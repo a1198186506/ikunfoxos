@@ -1,0 +1,140 @@
+{
+  "name": "ikunfoxsos",
+  "version": "0.1.0",
+  "private": true,
+  "description": "a crawler app",
+  "main": "main.js",
+  "author": "SongHao",
+  "build": {
+    "productName": "ikunfoxsos",
+    "copyright": "songhao",
+    "directories": {
+      "output": "out"
+    },
+    "win": {
+      "icon": "build/logo/logo.ico",
+      "target": [
+        {
+          "target": "nsis"
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "./build/logo/logo.ico",
+      "uninstallerIcon": "./build/logo/logo.ico",
+      "installerHeaderIcon": "./build/logo/logo.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "坤狐小系统"
+    }
+  },
+  "scripts": {
+    "dev": "concurrently \"vue-cli-service serve\" \"electron .\"",
+    "serve": "vue-cli-service serve && electron .",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "start": "electron-forge start",
+    "normal_crawler_server": "node ./normal_crawler/main.js",
+    "make": "electron-forge make",
+    "package": "electron-forge package",
+    "electronbuild": "electron-builder",
+    "go": "electron ."
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "./build/logo/logo.ico",
+        "options": {
+          "allowToChangeInstallationDirectory": true,
+          "perMachine": true
+        }
+      },
+      "rebuildConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ],
+      " plugins": [
+        {
+          "name": "@electron-forge/plugin-auto-unpack-natives",
+          " config": {}
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "core-js": "^3.8.3",
+    "electron-squirrel-startup": "^1.0.0",
+    "element-plus": "^2.3.9",
+    "pinia": "^2.1.6",
+    "primevue": "^3.32.0",
+    "puppeteer": "^21.0.3",
+    "vue": "^3.2.13",
+    "vue-router": "^4.2.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@electron-forge/cli": "^6.4.1",
+    "@electron-forge/maker-deb": "^6.4.1",
+    "@electron-forge/maker-rpm": "^6.4.1",
+    "@electron-forge/maker-squirrel": "^6.4.1",
+    "@electron-forge/maker-zip": "^6.4.1",
+    "@electron-forge/plugin-auto-unpack-natives": "^6.4.1",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "babel-plugin-component": "^1.1.1",
+    "concurrently": "^8.2.0",
+    "electron": "^25.5.0",
+    "electron-builder": "^24.6.3",
+    "electron-icon-builder": "^2.0.1",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "node-sass": "^9.0.0",
+    "sass": "^1.65.1",
+    "sass-loader": "^13.3.2",
+    "unplugin-auto-import": "^0.16.6",
+    "unplugin-vue-components": "^0.25.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
+}

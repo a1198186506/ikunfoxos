@@ -1,0 +1,29 @@
+{
+  "domain": "http://www.chinagwyw.org/",
+  "Browser_isnot_display": false,
+  "timeout_timer": 6000,
+  "tag": [
+    {
+      "index": 0,
+      "dom_type": "parent_node",
+      "class": ".con",
+      "which_choose": "class",
+      "isclick": false,
+      "type": null,
+      "children": [
+        {
+          "index": 0,
+          "dom_type": "son_node",
+          "class": ".hd",
+          "which_choose": "target",
+          "isclick": false,
+          "type": "text",
+          "target": "a",
+          "children": null,
+          "id": 1
+        }
+      ],
+      "id": 0
+    }
+  ]
+}
